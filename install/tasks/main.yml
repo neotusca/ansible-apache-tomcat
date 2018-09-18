@@ -33,6 +33,12 @@
     dest: "{{ download_dir }}/{{tomcat_version}}.tar.gz"
 
 
+### rpm install
+
+- name: Install openssl-devel
+  yum: name={{ item }} state=latest
+  with_items:
+    - openssl-devel
 
 
 ### extract

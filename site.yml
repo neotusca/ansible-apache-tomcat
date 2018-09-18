@@ -2,8 +2,7 @@
 - name: download, extract and Install
   hosts: all
   roles:
-    - tmp
-#    - install
+    - install
 
 - name: Apply common configuration to all nodes
   hosts: all
