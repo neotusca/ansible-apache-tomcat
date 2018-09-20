@@ -2,6 +2,7 @@
 - name: download, extract and Install
   hosts: all
   roles:
+    - common
     - install
 
 - name: Apply common configuration to all nodes
@@ -11,34 +12,4 @@
 
 
 
-#- name: Apply apache
-#  hosts: localhost
-#
-#  roles:
-#    - apache
 
-
-
-#
-#    - download
-#    - extract
-#    - config
-#    - compile
-
-
-#  - apache
-#    - download
-#    - extract
-#    - config
-#    - compile
-#
-#
-#
-#
-#
-
-#- name: Apply tomcat
-#  hosts: tomcat
-#
-#  roles:
-#    - tomcat

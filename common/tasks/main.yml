@@ -6,26 +6,26 @@
 - name: Ensure group "web" exists
   group:
     name: web
+    gid: 3001
     state: present
-    gid: 3000
 
 - name: Add the user 'apache' with a specific uid and a primary group of 'web'
   user:
     name: apache
     uid: 3000
-    groups: web,apache
+    groups: web
 
 - name: Ensure group "was" exists
   group:
     name: was
+    gid: 4001
     state: present
-    gid: 4000
 
 - name: Add the user 'tomcat' with a specific uid and a primary group of 'was'
   user:
     name: tomcat
     uid: 4000
-    groups: was,tomcat
+    groups: was
 
 
 
@@ -38,6 +38,7 @@
     owner: apache
     group: apache
     mode: 0775
+    force: yes
 
 - name: Creates directory 'logs-apache'
   file:
@@ -46,6 +47,7 @@
     owner: apache
     group: web
     mode: 0775
+    force: yes
 
 - name: Creates directory '/svc/uplus/was/tomcat'
   file:
@@ -54,6 +56,7 @@
     owner: tomcat
     group: tomcat
     mode: 0775
+    force: yes
 
 - name: Creates directory 'logs-tomcat'
   file:
@@ -62,14 +65,6 @@
     owner: tomcat
     group: was
     mode: 0775
+    force: yes
 
 
-### download apache & tomcat-connector
-
-### extract a & t
-
-### compile a & t
-
-### configure setting
-
-### create script

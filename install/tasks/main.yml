@@ -35,10 +35,11 @@
 
 ### rpm install
 
-- name: Install openssl-devel
+- name: Install openssl-devel, expat-devel
   yum: name={{ item }} state=latest
   with_items:
     - openssl-devel
+    - expat-devel
 
 
 ### extract
