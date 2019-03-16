@@ -1,0 +1,13 @@
+---
+
+### rpm install
+
+- name: Install openssl-devel, expat-devel, gcc, gcc-c++, make
+  yum: name={{ item }} state=latest
+  with_items:
+    - openssl-devel
+    - expat-devel
+    - gcc
+    - gcc-c++
+    - make
+

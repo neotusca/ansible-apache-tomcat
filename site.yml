@@ -2,8 +2,10 @@
 - name: download, extract and Install
   hosts: all
   roles:
-    - common
-    - install
+    #- common
+    #- pkg-install
+    #- webwas-download
+    - webwas-compile
 
 - name: Apply common configuration to all nodes
   hosts: all

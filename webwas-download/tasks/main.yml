@@ -1,0 +1,47 @@
+---
+
+### download
+
+- name: Download APR
+  get_url:
+    url: "{{ apr_url }}"
+    dest: "{{ download_dir }}/{{apr_version}}.tar.gz"
+
+- name: Download APR-util
+  get_url:
+    url: "{{ aprutil_url }}"
+    dest: "{{ download_dir }}/{{aprutil_version}}.tar.gz"
+
+- name: Download PCRE
+  get_url:
+    url: "{{ pcre_url }}"
+    dest: "{{ download_dir }}/{{pcre_version}}.tar.gz"
+
+- name: Download Apache
+  get_url:
+    url: "{{ apache_url }}"
+    dest: "{{ download_dir }}/{{apache_version}}.tar.gz"
+
+- name: Download Tomcat-Connector
+  get_url:
+    url: "{{ tconnector_url }}"
+    dest: "{{ download_dir }}/{{tconnector_version}}-src.tar.gz"
+
+- name: Download Tomcat
+  get_url:
+    url: "{{ tomcat_url }}"
+    dest: "{{ download_dir }}/{{tomcat_version}}.tar.gz"
+
+- name: Download Tomcat Native
+  get_url:
+    url: "{{ tnative_url }}"
+    dest: "{{ download_dir }}/{{tnative_version}}-src.tar.gz"
+
+- name: Download JDK
+  get_url:
+    url: "{{ jdk_url }}"
+    dest: "{{ download_dir }}/{{jdk_version}}.tar.gz"
+    headers: 'Cookie: oraclelicense=accept-securebackup-cookie'
+
+#wget -q -O /usr/local/src/jdk-8u201-linux-x64.tar.gz  --header 'Cookie: oraclelicense=accept-securebackup-cookie' https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
+

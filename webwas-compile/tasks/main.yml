@@ -1,0 +1,124 @@
+---
+
+### extract
+
+#- name: Extract into /usr/local/src/apr-1.6.3
+- name: Extract into {{download_dir}}/{{apr_version}}
+  unarchive:
+    src: "{{download_dir}}/{{apr_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/apr-util-1.6.1
+  unarchive:
+    src: "{{download_dir}}/{{aprutil_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/pcre-8.38.tar.gz
+  unarchive:
+    src: "{{download_dir}}/{{pcre_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/apache
+  unarchive:
+    src: "{{download_dir}}/{{apache_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/tomcat-connector
+  unarchive:
+    src: "{{download_dir}}/{{tconnector_version}}-src.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/jdk-xxxxxxxx
+  unarchive:
+    src: "{{download_dir}}/{{jdk_version}}.tar.gz"
+    dest: "{{jdk_install_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/tomcat
+  unarchive:
+    src: "{{download_dir}}/{{tomcat_version}}.tar.gz"
+    dest: "{{tomcat_install_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into {{download_dir}}/{{tnative_version}}
+  unarchive:
+    src: "{{download_dir}}/{{tnative_version}}-src.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+
+
+
+
+### compile
+
+- name: Compile APR
+  command: "{{ item }} chdir={{download_dir}}/{{apr_version}}/"
+  with_items:
+    - ./configure --prefix=/usr/local/apr
+    - /usr/bin/make
+    - /usr/bin/make install
+
+- name: Compile APR-UTIL
+  command: "{{ item }} chdir={{download_dir}}/{{aprutil_version}}/"
+  with_items:
+    - ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr 
+    - /usr/bin/make
+    - /usr/bin/make install
+
+- name: Compile PCRE
+  command: "{{ item }} chdir={{download_dir}}/{{pcre_version}}/"
+  with_items:
+    - ./configure --prefix=/usr/local/pcre
+    - /usr/bin/make
+    - /usr/bin/make install
+
+- name: Compile Apache
+  command: "{{ item }} chdir={{download_dir}}/{{apache_version}}/"
+  with_items:
+    - ./configure --prefix=/svc/uplus/web/apache --enable-so --enable-ssl 
+                  --with-mpm=worker --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util 
+                  --with-pcre=/usr/local/pcre --enable-mpms-shared=all
+    - /usr/bin/make
+    - /usr/bin/make install
+
+
+- name: Compile Tomcat-connector
+  command: "{{ item }} chdir={{download_dir}}/{{tconnector_version}}-src/native"
+  with_items:
+    - ./configure --with-apxs=/svc/uplus/web/apache/bin/apxs
+    - /usr/bin/make
+    - /usr/bin/make install
+
+- name: Compile Tomcat-native
+  command: "{{ item }} chdir={{download_dir}}/{{tnative_version}}-src/native"
+  with_items:
+    - ./configure --prefix=/svc/uplus/was/tomcat 
+                  --with-java-home=/svc/uplus/was/jdk1.8.0_202 \
+                  --with-apr=/usr/local/apr \
+                  --with-ssl
+    - /usr/bin/make
+    - /usr/bin/make install
+
+

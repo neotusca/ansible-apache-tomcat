@@ -9,15 +9,18 @@ download_dir: /usr/local/src
 
 apache_install_dir: /svc/uplus/web/apache
 tomcat_install_dir: /svc/uplus/was/tomcat
+jdk_install_dir: /svc/uplus/was
 
 
-apr_version : apr-1.6.3
-aprutil_version : apr-util-1.6.1
-pcre_version : pcre-8.38
-apache_version : httpd-2.4.34
-tconnector_version : tomcat-connectors-1.2.44
-tomcat_version : apache-tomcat-8.5.31
-jdk_version : jdk-8u181-linux-x64
+apr_version:        apr-1.6.3
+aprutil_version:    apr-util-1.6.1
+pcre_version:       pcre-8.38
+apache_version:     httpd-2.4.34
+tconnector_version: tomcat-connectors-1.2.44
+tomcat_version :    apache-tomcat-8.5.31
+tnative_version :   tomcat-native-1.2.14
+#jdk_version :       jdk-8u181-linux-x64
+jdk_version :       jdk-8u202-linux-x64
 
 
 apr_url:        'http://archive.apache.org/dist/apr/apr-1.6.3.tar.gz'
