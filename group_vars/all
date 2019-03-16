@@ -16,14 +16,15 @@ aprutil_version : apr-util-1.6.1
 pcre_version : pcre-8.38
 apache_version : httpd-2.4.34
 tconnector_version : tomcat-connectors-1.2.44
-tomcat_version : apache-tomcat-8.0.53
+tomcat_version : apache-tomcat-8.5.31
 jdk_version : jdk-8u181-linux-x64
 
 
-apr_url: 'http://mirror.kakao.com/apache/apr/apr-1.6.3.tar.gz'
-aprutil_url: 'http://mirror.kakao.com/apache/apr/apr-util-1.6.1.tar.gz'
-pcre_url: 'http://ftp.pcre.org/pub/pcre/pcre-8.38.tar.gz'
-apache_url: 'http://mirror.kakao.com/apache/httpd/httpd-2.4.34.tar.gz'
-tconnector_url: 'http://mirror.kakao.com/apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.44-src.tar.gz'
-tomcat_url: 'http://mirror.kakao.com/apache/tomcat/tomcat-8/v8.0.53/bin/apache-tomcat-8.0.53.tar.gz'
-jdk_url: 'http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz'
+apr_url:        'http://archive.apache.org/dist/apr/apr-1.6.3.tar.gz'
+aprutil_url:    'http://archive.apache.org/dist/apr/apr-util-1.6.1.tar.gz'
+pcre_url:       'http://ftp.pcre.org/pub/pcre/pcre-8.38.tar.gz'
+apache_url:     'http://archive.apache.org/dist/httpd/httpd-2.4.34.tar.gz'
+tconnector_url: 'http://archive.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.44-src.tar.gz'
+tomcat_url:     'http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz'
+tnative_url:    'http://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.14/source/tomcat-native-1.2.14-src.tar.gz'
+jdk_url:        'https://download.oracle.com/otn-pub/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-linux-x64.tar.gz'
