@@ -1,20 +1,29 @@
 ---
 
-### compile
+### config
 
-- name: Compile APR
-  command: "{{ item }} chdir={{download_dir}}/{{apr_version}}/"
-  with_items:
-    - ./configure --prefix=/usr/local/apr
-    - /usr/bin/make
-    - /usr/bin/make install
 
-- name: Compile APR-UTIL
-  command: "{{ item }} chdir={{download_dir}}/{{aprutil_version}}/"
-  with_items:
-    - ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr 
-    - /usr/bin/make
-    - /usr/bin/make install
+- name: Apache config
+  command:
+
+- httpd.conf
+- extra/httpd-ssl.conf
+- extra/httpd-vhosts.conf
+- extra/httpd-mpm.conf
+
+- name: Tomcat-connetor config
+- mod-jk.conf
+- urifdlfdllf
+- workers.property
+
+
+- name: Tomcat config
+
+- start.sh
+- stop.sh
+- server.xml
+- web.xml
+
 
 - name: Compile PCRE
   command: "{{ item }} chdir={{download_dir}}/{{pcre_version}}/"

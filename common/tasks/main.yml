@@ -31,9 +31,27 @@
 
 ### Create Directory
 
+- name: Creates directory  "{{base_install_dir}}"
+  file:
+    path: "{{base_install_dir}}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+    force: yes
+
+- name: Creates directory "{{base_log_dir}}"
+  file:
+    path: "{{base_log_dir}}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+    force: yes
+
 - name: Creates directory '/svc/uplus/web/apache'
   file:
-    path: /svc/uplus/web/apache
+    path: "{{apache_install_dir}}"
     state: directory
     owner: apache
     group: apache
@@ -42,7 +60,7 @@
 
 - name: Creates directory 'logs-apache'
   file:
-    path: /logs/uplus/web/apache
+    path: "{{apache_log_dir}}"
     state: directory
     owner: apache
     group: web
@@ -51,7 +69,7 @@
 
 - name: Creates directory '/svc/uplus/was/tomcat'
   file:
-    path: /svc/uplus/was/tomcat
+    path: "{{tomcat_install_dir}}"
     state: directory
     owner: tomcat
     group: tomcat
@@ -60,7 +78,7 @@
 
 - name: Creates directory 'logs-tomcat'
   file:
-    path: /logs/uplus/was/tomcat
+    path: "{{tomcat_log_dir}}"
     state: directory
     owner: tomcat
     group: was

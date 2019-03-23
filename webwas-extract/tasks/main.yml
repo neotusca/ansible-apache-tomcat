@@ -1,0 +1,72 @@
+---
+
+### extract
+
+- name: Extract into {{download_dir}}/{{apr_version}}
+  unarchive:
+    src: "{{download_dir}}/{{apr_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/apr-util-1.6.1
+  unarchive:
+    src: "{{download_dir}}/{{aprutil_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/pcre-8.38.tar.gz
+  unarchive:
+    src: "{{download_dir}}/{{pcre_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/apache
+  unarchive:
+    src: "{{download_dir}}/{{apache_version}}.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/tomcat-connector
+  unarchive:
+    src: "{{download_dir}}/{{tconnector_version}}-src.tar.gz"
+    dest: "{{download_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/jdk_version
+  unarchive:
+    src: "{{download_dir}}/{{jdk_version}}.tar.gz"
+    dest: "{{jdk_install_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+
+- name: Extract into /usr/local/src/tomcat
+  unarchive:
+    src: "{{download_dir}}/{{tomcat_version}}.tar.gz"
+    dest: "{{tomcat_install_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C
+
+- name: Extract into /usr/local/src/tomcat
+  command: mv "{{tomcat_install_dir}}/{{tomcat_version}}" "{{tomcat_install_dir}}/tomcat"
+
+
+- name: Extract into "{{download_dir}}/{{tnative_version}}"
+  unarchive:
+    src: "{{download_dir}}/{{tnative_version}}-src.tar.gz"
+    dest: "{{tomcat_install_dir}}"
+  environment:
+    LANG: C
+    LC_ALL: C

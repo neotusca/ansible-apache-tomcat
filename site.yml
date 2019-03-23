@@ -5,6 +5,7 @@
     #- common
     #- pkg-install
     #- webwas-download
+    #- webwas-extract
     - webwas-compile
 
 - name: Apply common configuration to all nodes

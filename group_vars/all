@@ -2,14 +2,16 @@
 
 base_pkgs: [gcc, gcc-c++]
 
-
 download_url: http://mirror.kakao.com
-
 download_dir: /usr/local/src
 
+base_install_dir:   /svc/uplus
+base_log_dir:       /log/uplus
 apache_install_dir: /svc/uplus/web/apache
-tomcat_install_dir: /svc/uplus/was/tomcat
-jdk_install_dir: /svc/uplus/was
+tomcat_install_dir: /svc/uplus/was
+apache_log_dir:     /log/uplus/web/apache
+tomcat_log_dir:     /log/uplus/was/tomcat
+jdk_install_dir:    /svc/uplus/was
 
 
 apr_version:        apr-1.6.3
@@ -19,7 +21,6 @@ apache_version:     httpd-2.4.34
 tconnector_version: tomcat-connectors-1.2.44
 tomcat_version :    apache-tomcat-8.5.31
 tnative_version :   tomcat-native-1.2.14
-#jdk_version :       jdk-8u181-linux-x64
 jdk_version :       jdk-8u202-linux-x64
 
 
