@@ -1,0 +1,6 @@
+#### java setting
+#export JAVA_HOME=/svc/uplus/was/jdk1.8.0_281
+export JAVA_HOME={{jdk_install_dir}}/{{jdk_version_extract}}
+export PATH=$PATH:$JAVA_HOME/bin
+
+export CLASSPATH=$JAVA_HOME/lib:.
