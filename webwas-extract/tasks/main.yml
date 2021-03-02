@@ -67,13 +67,11 @@
     LANG: C
     LC_ALL: C
 
-- name: Extract into /usr/local/src/tomcat
-  command: mv "{{tomcat_install_dir}}/{{tomcat_version}}" "{{tomcat_install_dir}}/tomcat"
-
-- name: Extract into "{{download_dir}}/{{tnative_version}}"
+- name: Extract into "{{tomcat_install_dir}}/{{tomcat_version}}"
   unarchive:
-    src: "{{download_dir}}/{{tnative_version}}-src.tar.gz"
-    dest: "{{tomcat_install_dir}}"
+    src: "{{tomcat_install_dir}}/{{tomcat_version}}/bin/tomcat-native.tar.gz"
+    dest: "{{tomcat_install_dir}}/{{tomcat_version}}/bin/"
   environment:
     LANG: C
     LC_ALL: C
+
