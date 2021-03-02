@@ -10,7 +10,7 @@
     LANG: C
     LC_ALL: C
 
-- name: Extract into /usr/local/src/apr-util-1.6.1
+- name: Extract into {{download_dir}}/{{aprutil_version}}
   unarchive:
     src: "{{download_dir}}/{{aprutil_version}}.tar.gz"
     dest: "{{download_dir}}"
@@ -18,7 +18,7 @@
     LANG: C
     LC_ALL: C
 
-- name: Extract into /usr/local/src/pcre-8.38.tar.gz
+- name: Extract into {{download_dir}}/{{pcre_version}}
   unarchive:
     src: "{{download_dir}}/{{pcre_version}}.tar.gz"
     dest: "{{download_dir}}"
@@ -26,7 +26,7 @@
     LANG: C
     LC_ALL: C
 
-- name: Extract into /usr/local/src/apache
+- name: Extract into {{download_dir}}/{{apache_version}}
   unarchive:
     src: "{{download_dir}}/{{apache_version}}.tar.gz"
     dest: "{{download_dir}}"
@@ -34,7 +34,7 @@
     LANG: C
     LC_ALL: C
 
-- name: Extract into /usr/local/src/tomcat-connector
+- name: Extract into {{download_dir}}/{{tconnector_version}}
   unarchive:
     src: "{{download_dir}}/{{tconnector_version}}-src.tar.gz"
     dest: "{{download_dir}}"
@@ -42,16 +42,15 @@
     LANG: C
     LC_ALL: C
 
-- name: Extract into /usr/local/src/jdk_version
+- name: Extract into {{download_dir}}/{{jdk_version_compress}}
   unarchive:
-    src: "{{download_dir}}/{{jdk_version}}.tar.gz"
+    src: "{{download_dir}}/{{jdk_version_compress}}.tar.gz"
     dest: "{{jdk_install_dir}}"
   environment:
     LANG: C
     LC_ALL: C
 
-
-- name: Extract into /usr/local/src/tomcat
+- name: Extract into {{download_dir}}/{{tomcat_version}}
   unarchive:
     src: "{{download_dir}}/{{tomcat_version}}.tar.gz"
     dest: "{{tomcat_install_dir}}"
@@ -61,7 +60,6 @@
 
 - name: Extract into /usr/local/src/tomcat
   command: mv "{{tomcat_install_dir}}/{{tomcat_version}}" "{{tomcat_install_dir}}/tomcat"
-
 
 - name: Extract into "{{download_dir}}/{{tnative_version}}"
   unarchive:
