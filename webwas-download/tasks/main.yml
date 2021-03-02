@@ -32,11 +32,6 @@
     url: "{{ tomcat_url }}"
     dest: "{{ download_dir }}/{{tomcat_version}}.tar.gz"
 
-- name: Download Tomcat Native
-  get_url:
-    url: "{{ tnative_url }}"
-    dest: "{{ download_dir }}/{{tnative_version}}-src.tar.gz"
-
 - name: Download JDK
   get_url:
     url: "{{ jdk_url }}"
